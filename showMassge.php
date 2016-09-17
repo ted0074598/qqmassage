@@ -21,7 +21,7 @@ function GetData($val){
 	return $gregorian;/**显示格式为 “月/日/年” */
 }
 
-$filePath = 'qq5.xls';
+$filePath = 'qq.xls';
 set_time_limit(0);
 
 $PHPExcel = new PHPExcel();
@@ -66,21 +66,21 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 				 {
 				 	$ip_add=$val;
 				 }
-			    if(ord($currentColumn)-65==3)
-			    {
-			    	$receive_num=$val;
-			    }
-	
-			 
-			    if(ord($currentColumn)-65==5)
-			    {
-			    	$send_time=$val;
-			    }
-			     if(ord($currentColumn)-65==6)
-			    {
-			    	$qq_massge=$val;
-			    }
-			    
+				    if(ord($currentColumn)-65==3)
+				    {
+				    	$receive_num=$val;
+				    }
+		
+				 
+				    if(ord($currentColumn)-65==5)
+				    {
+				    	$send_time=$val;
+				    }
+				     if(ord($currentColumn)-65==6)
+				    {
+				    	$qq_massge=$val;
+				    }
+				    
 			    
 			    
 			    
@@ -105,7 +105,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
  
 				   
 		
-				if($send_time>'2016-09-02 23:58:51')
+				if(1)
 				{
 
 					echo $query.'<br/>';
