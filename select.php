@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 
 error_reporting(E_ALL);
@@ -137,32 +136,3 @@ phone_num:
 <input type="text" name="phone_num" />
 <input type="submit" value="Submit" />
 </form>
-
-<?php
-					$link->query("SET character_set_results='utf8'");
-					$query = "select t1.对方号码,count(*) as 联系频率 
-							from 
-							(
-
-							SELECT id,
-							    (
-							     case send_Num
-							     	when '2700961555' then receive_num
-							     	else send_Num
-							     end
-							     ) as '对方号码'
-							FROM `gaofushuai`
-
-							) as t1
-							group by t1.对方号码
-							having 联系频率>300
-							ORDER BY `联系频率`  DESC"  or die("Error in the consult.." . mysqli_error($link));
-							//echo $query.'</br>';
-							$result=$link->query($query);
-							foreach ($result as $key) {
-
-								echo '<a href="select.php?phone_num='.$key['对方号码'].'">'.$key['对方号码'].'</a><====>'.$key['联系频率'].'次<br/>';
-							}
-
-
-?>

@@ -21,7 +21,7 @@ function GetData($val){
 	return $gregorian;/**显示格式为 “月/日/年” */
 }
 
-$filePath = 'qq8.xls';
+$filePath = 'qq.xls';
 set_time_limit(0);
 
 $PHPExcel = new PHPExcel();
@@ -91,49 +91,31 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		
 
 		
-				
+				echo $send_Num.'----'.$ip_add.'----'. $receive_num.'----'. $send_time.'----'. $qq_massge.'</br>';
 	
 
 		echo '========================================================================</br>';
-	/*		
+			
 				$query='INSERT INTO `gaofushuai`(`send_Num`,`ip_add`,`receive_num`, `send_time`, `qq_massge`) VALUES
 		        ("'.$send_Num.'","'
 		        .$ip_add.'","'
 		        .$receive_num.'","'
 		        .$send_time.'","'
 		        .$qq_massge.'")';
-
-		      if($send_time>'2016-09-18 23:58:59')
- 				echo $query.'<br/>';	   
+ 
+				   
 		
-				if(0)
+				if(1)
 				{
 
 					echo $query.'<br/>';
-						if($link->query($query))
+							if($link->query($query))
 				 		{
 				 			echo "插入成功".'<br/>';
 				 		}
 				}
 				
-					*/
-$stmt=$link->prepare('INSERT INTO `gaofushuai`(`send_Num`,`ip_add`,`receive_num`, `send_time`, `qq_massge`) VALUES (?,?,?,?,?)');
-$stmt->bind_param("sssss", $send_Num, $ip_add, $receive_num,$send_time,$qq_massge);
-
-
-
-		if($send_time>'2016-09-30 14:51:22')//
-		{	
-			echo $send_Num.'===='.$ip_add.'===='.$receive_num.'===='.$send_time.'===='.$qq_massge.'<br/>';
-			if(1)
-			{	if($stmt->execute())
-				{
-					echo "插入成功".'<br/>';
-				}
-				
-				
-			}
-		}
+					
 	
 
 
@@ -142,7 +124,7 @@ $stmt->bind_param("sssss", $send_Num, $ip_add, $receive_num,$send_time,$qq_massg
 }
 
 
-$link->close();
+
 
 
 
